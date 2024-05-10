@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>*{margin: 0;padding: 0;box-sizing: border-box;}
+    html,body{width: 100%;height: 100%;background-color: black;}
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-[100%] h-[100%] p-[10%]">
+        <h1 class="w-[100%] text-center  text-zinc-900 text-[50px] font-bold">Create Your Account</h1>
+        <form action="/create" method="post">
+            <input type="text" name="name" placeholder="UserName" class=" block w-[100%] h-[40px] bg-zinc-900 outline-none py-[5px] px-[15px] rounded-[5px] text-[white] text-[20px] my-[20px]">
+            <input type="email" name="email" placeholder="E-mail" class=" block w-[100%] h-[40px] bg-zinc-900 outline-none py-[5px] px-[15px] rounded-[5px] text-[white] text-[20px] my-[20px]">
+            <input type="text" name="img" placeholder="URL" class=" block w-[100%] h-[40px] bg-zinc-900 outline-none py-[5px] px-[15px] rounded-[5px] text-[white] text-[20px] my-[20px]">
+            <input type="submit" class="bg-[green] p-[10px] rounded-[5px] text-[20px]">
+        </form>
+    </div>
+</body>
+</html>

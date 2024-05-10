@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>*{margin: 0;padding: 0;box-sizing: border-box;}
+        html,body{width: 100%;height: 100%;background-color: black;}
+        </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-[100%] h-[100%] p-[5%] ">
+        <h1 class="w-[100%] text-center  text-zinc-900 text-[50px] font-bold">Edit Your Account</h1>
+        <form method="post" action=<%= `/edit/${user.name}` %>>
+            <input type="text"  placeholder="<%=user.name%>" class="block translate-x-[120%] w-[30%] h-[30px] bg-zinc-900 outline-none py-[5px] px-[15px] rounded-[5px] text-[white] text-center text-[20px] my-[20px]">
+            <div class="flex gap-[10px]">
+            <input type="email"  placeholder="<%=user.email%>" class=" w-[50%] h-[40px] bg-zinc-900 outline-none py-[5px] px-[15px] rounded-[5px] text-[white] text-[20px] my-[20px]">
+            <input type="email" name="email" placeholder="New E-mail" class=" w-[50%] h-[40px] bg-zinc-900 outline-none py-[5px] px-[15px] rounded-[5px] text-[white] text-[20px] my-[20px]">    
+            </div>
+            <div class="flex gap-[10px]">
+            <input type="text"  placeholder="<%=user.img%>" class=" block w-[50%] h-[40px] bg-zinc-900 outline-none py-[5px] px-[15px] rounded-[5px] text-[white] text-[20px] my-[20px]">
+            <input type="text" name="img" placeholder="New URL" class=" block w-[50%] h-[40px] bg-zinc-900 outline-none py-[5px] px-[15px] rounded-[5px] text-[white] text-[20px] my-[20px]">
+            </div>
+            <input type="submit" class="bg-[green] p-[10px] rounded-[5px] text-[20px]">
+        </form>
+    </div>
+</body>
+</html>
