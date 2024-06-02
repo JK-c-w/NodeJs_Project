@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>*{margin: 0;padding: 0;box-sizing: border-box;}
+        html,body{width: 100%;height: 100%;background-color: black;}
+        </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+    <div>
+        <div class="w-full h-[90%] p-[50px]">
+        <div class="w-full text-[white]">
+           <h1 class="   text-zinc-900 text-[100px] font-bold underline underline-offset-4">Photogram</h1>
+           <button class="w-[100px] h-[50px] text-[20px] p-[3px] translate-x-[920px] translate-y-[-120px] bg-zinc-800 rounded-[5%]">
+            <a href="/logout">Logout<i class=" logout ri-logout-box-r-fill"></i></a></button>
+        </div>    
+        <div class=" flex gap-[10px] justify-left mt-[30px]">
+            <div class="w-[200px] h-[200px] overflow-hidden bg-zinc-900 rounded-full flex items-center justify-center">
+                <% if(user.dp!="DisplayPic"){ %>
+                    <img src="/utils/<%=user.dp%>">
+                <%} else{ %>
+                    <i class="ri-account-circle-fill text-[100px] "></i>
+                <% } %>
+            </div>
+            <div class=" w-[600px] h-[200px]  text-[white] py-[10px] px-[30px]">
+                <p class="text-[50px] py-[0]"><%=user.name%></p>
+                <p class="text-[30px]"><%=user.email%></p>
+                <p class="text-[20px]"><%=user.Bio%></p>
+                <button class="w-[70px] rounded-[10%] bg-zinc-800 p-[3px] mt-[5px]">
+                   <a href="/editing">Edit<i class="ri-pencil-fill"></i></a>
+                </button>
+                <button class="add w-[70px] rounded-[10%] bg-zinc-800 p-[3px] mt-[5px] ml-[10px]">
+                    Add <i class="ri-add-fill"></i>
+                </button>
+                 <form method="post"  action="/post" enctype="multipart/form-data" class="hidden">
+                    <input type="file" name="collections">
+                 </form>
+            </div>
+        </div>
+    </div>
+        <div class="w-full bg-zinc-800 p-[50px] ">
+            <% if(user.collections.length>0){ %>
+            <div class="w-full flex gap-[10px] flex-wrap">
+                    <% user.collections.forEach(function(i){ %>
+                        <div class="collection w-[200px] h-[200px] bg-[white] rounded-[10%] overflow-hidden relative">
+                            <img src="/utils/<%=i%>"><a href="/delete/<%=user.email%>/<%=i%>"><i class="ri-delete-bin-fill absolute right-[10px] bottom-[10px]"></i></a>
+                        </div>
+                        <% })} %>
+            </div>
+        </div>
+    </div>
+    <script>
+        let images=document.querySelector('input');
+        let add=document.querySelector('.add');
+        add.addEventListener('click',function(){
+            images.click();
+       })
+        images.addEventListener('change',function(){
+            console.log("change");
+               document.querySelector('form').submit();
+        })
+    </script>
+</body>
+</html>
